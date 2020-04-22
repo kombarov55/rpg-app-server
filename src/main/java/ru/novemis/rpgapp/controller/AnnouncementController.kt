@@ -1,9 +1,6 @@
 package ru.novemis.rpgapp.controller
 
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import ru.novemis.rpgapp.dao.AnnouncementRepository
 import ru.novemis.rpgapp.model.announcement.Announcement
 
@@ -16,7 +13,11 @@ class AnnouncementController(
     @PostMapping(consumes = ["application/json"])
     fun saveAnnouncement(@RequestBody announcement: Announcement) {
         announcementRepository.save(announcement)
-        println("debug")
+    }
+
+    @GetMapping
+    fun getAll(): Iterable<Announcement> {
+        return announcementRepository.findAll()
     }
 
 }

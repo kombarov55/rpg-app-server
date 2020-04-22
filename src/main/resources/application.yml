@@ -9,7 +9,9 @@ spring:
     username: rpg
     password: rpg
   jpa:
+    show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
+
 
 upload-dir: /usr/share/nginx/html/images
