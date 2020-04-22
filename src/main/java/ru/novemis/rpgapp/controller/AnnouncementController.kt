@@ -11,13 +11,18 @@ class AnnouncementController(
 ) {
 
     @PostMapping(consumes = ["application/json"])
-    fun saveAnnouncement(@RequestBody announcement: Announcement) {
-        announcementRepository.save(announcement)
+    fun saveAnnouncement(@RequestBody announcement: Announcement): Announcement {
+        return announcementRepository.save(announcement)
     }
 
     @GetMapping
     fun getAll(): Iterable<Announcement> {
         return announcementRepository.findAll()
+    }
+
+    @DeleteMapping("/{id}")
+    fun delete(@PathVariable("id") id: String) {
+        announcementRepository.deleteById(id)
     }
 
 }
