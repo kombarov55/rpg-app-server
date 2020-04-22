@@ -1,0 +1,5 @@
+spring:
+  codec:
+    max-in-memory-size: 10MB
+
+upload-dir: /usr/share/nginx/html/images
